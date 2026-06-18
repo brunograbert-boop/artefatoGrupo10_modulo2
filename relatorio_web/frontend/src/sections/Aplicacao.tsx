@@ -2,8 +2,9 @@ import { Section } from '../components/Section';
 
 // URL pública do app (Streamlit Community Cloud). Deixe vazio ('') enquanto não
 // houver deploy — a seção mostra as instruções para rodar localmente.
-// Após publicar, cole aqui o link (ex.: https://vitaliza-churn.streamlit.app).
-const APP_URL = '';
+const APP_URL = 'https://artefatogrupo10modulo2.streamlit.app/';
+// embed=true remove a barra/rodapé do Streamlit para incorporar limpo no iframe.
+const APP_EMBED_URL = APP_URL + (APP_URL.includes('?') ? '&' : '?') + 'embed=true';
 
 const TABS = [
   {
@@ -58,7 +59,7 @@ export function Aplicacao() {
           </a>
           <div className="mt-4 border border-inteli-gray-border rounded-lg overflow-hidden">
             <iframe
-              src={APP_URL}
+              src={APP_EMBED_URL}
               title="Preditor de Churn Vitaliza"
               className="w-full"
               style={{ height: '720px', border: 'none' }}
