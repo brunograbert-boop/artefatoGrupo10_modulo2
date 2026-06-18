@@ -14,8 +14,8 @@ const LIMITS = [
     detalhe: 'Cancelamentos via falha de pagamento, chargeback ou abandono silencioso (~33% do fenômeno total, segundo o case) não estão rotulados no dataset. Qualquer modelo treinado aqui tem recall máximo teórico de ~67% do fenômeno real.',
   },
   {
-    titulo: 'Possível target leakage',
-    detalhe: 'Avg_class_frequency_current_month e Month_to_end_contract são co-temporais ao evento. Para produção, é necessário reconstruir features em snapshot point-in-time (T-30 dias).',
+    titulo: 'Target leakage — identificado e tratado',
+    detalhe: 'Avg_class_frequency_current_month e Month_to_end_contract são co-temporais ao evento. Já removemos ambas do modelo de produção (Seção 6.6 e o app da Seção 10 são treinados sem elas). Limitação remanescente: o ideal é reconstruir as features em snapshot point-in-time (T-30 dias) em vez de apenas remover.',
   },
   {
     titulo: 'Sem holdout temporal',
@@ -29,8 +29,8 @@ const LIMITS = [
 
 const NEXT_STEPS = [
   { semana: '1-3', titulo: 'Reconciliar PostgreSQL × Mixpanel × GA4 por user_id', detalhe: 'Sem isso, Rafael e Júlia permanecem indistinguíveis em produção.' },
-  { semana: '3-5', titulo: 'Reconstruir snapshot point-in-time T-30 e retreinar', detalhe: 'Atual GB AUC=0,98 tem risco de leakage. Validar com holdout temporal.' },
-  { semana: '5-7', titulo: 'Integrar segmentação à interface', detalhe: 'CS e Marketing recebem o cluster do cliente em tempo real no CRM.' },
+  { semana: '3-5', titulo: 'Reconstruir snapshot point-in-time T-30 (feito parcialmente)', detalhe: 'Já retreinamos SEM as variáveis vazadoras (modelo servido na Seção 10, AUC honesto 0,957). Falta a versão point-in-time T-30 com holdout temporal.' },
+  { semana: '5-7', titulo: 'Integrar segmentação à interface (feito)', detalhe: 'Realizado: o app da Seção 10 atribui o cluster/persona do cliente em tempo real junto com a probabilidade de churn e o SHAP. Próximo passo: levar isso ao CRM de CS/Marketing.' },
   { semana: '8-10', titulo: 'Piloto A/B no segmento Júlia', detalhe: 'Intervir em 50% do C3 com Caminho B (proativo) e comparar churn vs grupo controle. Validar que a intervenção CAUSA retenção.' },
 ];
 

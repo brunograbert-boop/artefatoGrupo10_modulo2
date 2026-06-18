@@ -4,8 +4,6 @@ import type { AnalysisData } from '../types';
 export function Sumario({ data }: { data: AnalysisData }) {
   const churnGlobalPct = (data.eda.churn_global * 100).toFixed(1);
   const earlyDropout = data.clusters[3];
-  const bestModel = data.models.best_model;
-  const bestAuc = data.models.results[0].roc_auc;
 
   return (
     <Section
@@ -36,9 +34,9 @@ export function Sumario({ data }: { data: AnalysisData }) {
           <div className="text-xs text-inteli-gray-muted mt-1">clusters via KMeans</div>
         </div>
         <div className="bg-inteli-gray-bg rounded-lg p-4">
-          <div className="text-xs uppercase tracking-wider text-inteli-gray-muted mb-1">Modelo líder</div>
-          <div className="text-2xl font-bold text-inteli-navy">{bestAuc.toFixed(3)}</div>
-          <div className="text-xs text-inteli-gray-muted mt-1">AUC · {bestModel}</div>
+          <div className="text-xs uppercase tracking-wider text-inteli-gray-muted mb-1">Modelo em produção</div>
+          <div className="text-2xl font-bold text-inteli-navy">0,957</div>
+          <div className="text-xs text-inteli-gray-muted mt-1">AUC · LogReg sem vazamento (Seção 10)</div>
         </div>
       </div>
 

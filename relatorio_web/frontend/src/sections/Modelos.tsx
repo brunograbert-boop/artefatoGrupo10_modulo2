@@ -26,7 +26,7 @@ export function Modelos({ data }: { data: AnalysisData }) {
       track="tech"
       number="6."
       title="Modelos Preditivos"
-      subtitle="9 classificadores comparados · Gradient Boosting eleito para produção"
+      subtitle="9 classificadores comparados · a validação anti-leakage (6.6) define o modelo de produção servido na Seção 10"
     >
       {/* 6.1 - Familias */}
       <h3 className="text-lg font-semibold text-inteli-navy mb-2">6.1 As famílias de classificadores</h3>
@@ -78,7 +78,7 @@ export function Modelos({ data }: { data: AnalysisData }) {
                 <tr key={i} className={isBest ? 'bg-green-50 font-semibold' : isTree ? 'bg-blue-50' : (i % 2 === 0 ? 'bg-white' : 'bg-inteli-gray-bg')}>
                   <td className="px-3 py-2">
                     {r.modelo}
-                    {isBest && <span className="ml-2 text-xs bg-green-600 text-white px-2 py-0.5 rounded-full">Produção</span>}
+                    {isBest && <span className="ml-2 text-xs bg-green-600 text-white px-2 py-0.5 rounded-full">Maior AUC (bruto)</span>}
                     {isTree && <span className="ml-2 text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full">Narrativa</span>}
                   </td>
                   <td className="px-3 py-2 text-inteli-gray-muted text-xs">{r.familia}</td>
@@ -93,6 +93,12 @@ export function Modelos({ data }: { data: AnalysisData }) {
           </tbody>
         </table>
       </div>
+      <p className="text-xs text-inteli-gray-muted mb-6 italic">
+        ⚠ Esta comparação inclui as 13 features (com as 2 co-temporais ao churn). O AUC do
+        Gradient Boosting aqui é o de maior valor <strong>bruto</strong>, mas inflado por
+        vazamento — a decisão do modelo realmente colocado em produção é feita na seção 6.6
+        (sem vazamento) e o serviço resultante está na Seção 10.
+      </p>
 
       {/* 6.3 - Confusion matrix + Feature importance */}
       <h3 className="text-lg font-semibold text-inteli-navy mb-2">6.3 Matriz de confusão · além da acurácia</h3>
@@ -294,9 +300,12 @@ export function Modelos({ data }: { data: AnalysisData }) {
         </div>
         <div className="bg-green-50 border-l-4 border-green-600 rounded p-4">
           <div className="text-xs uppercase tracking-wider text-green-900 font-semibold mb-1">Modelo de Produção</div>
-          <div className="font-semibold mb-2">Gradient Boosting</div>
+          <div className="font-semibold mb-2">Modelo sem vazamento (ver 6.6 e Seção 10)</div>
           <p className="text-sm leading-relaxed">
-            <strong>Maior AUC</strong> e probabilidades calibradas. É ele que alimenta o eixo Risco da matriz Valor × Risco da próxima seção.
+            O Gradient Boosting tem o maior AUC <strong>bruto</strong>, mas usa 2 features que
+            vazam o alvo — por isso alimenta apenas a análise (eixo Risco da matriz da próxima
+            seção). O modelo <strong>realmente servido</strong> é treinado <strong>sem</strong>
+            essas variáveis (Seção 6.6) e está no ar na <strong>Seção 10</strong>.
           </p>
         </div>
       </div>
@@ -431,7 +440,7 @@ export function Modelos({ data }: { data: AnalysisData }) {
             {
               label: '🟢 Sem leakage + balanced',
               subtitle: "class_weight='balanced'",
-              note: 'Recall maximizado · ESCOLHIDO',
+              note: 'Recall maximizado · melhor GB sem vazamento',
               borderColor: 'border-green-600',
               bgHeader: 'bg-green-50',
               textHeader: 'text-green-900',
@@ -637,9 +646,20 @@ export function Modelos({ data }: { data: AnalysisData }) {
           <p className="text-sm leading-relaxed mb-3">
             Removendo as variáveis com vazamento e aplicando <code className="bg-white/10 px-1 rounded">class_weight='balanced'</code>, o modelo <strong>generaliza melhor</strong> que o original. Recall de {(data.validation.global_metrics.gb_balanced.recall * 100).toFixed(1)}% em dados <em>nunca vistos</em> — superior aos {(data.validation.global_metrics.gb_original_com_leakage_recall * 100).toFixed(1)}% do modelo "inflado" pelo leakage.
           </p>
-          <p className="text-sm leading-relaxed">
+          <p className="text-sm leading-relaxed mb-3">
             Para a Camila levar ao Conselho: o modelo <strong>existe</strong>, é <strong>defensável tecnicamente</strong> (sem vazamento), tem <strong>performance honesta</strong> validada num holdout, e <strong>captura proporcionalmente os clusters de maior risco</strong> ({(data.validation.per_persona[2].recall_balanced * 100).toFixed(1)}% de recall no C2 e {(data.validation.per_persona[3].recall_balanced * 100).toFixed(1)}% no C3 — onde está o problema real).
           </p>
+          <div className="bg-white/10 rounded p-3 border-l-4 border-green-400">
+            <div className="text-xs uppercase tracking-wider text-green-300 font-semibold mb-1">Do relatório ao serviço no ar (Seção 10)</div>
+            <p className="text-sm leading-relaxed">
+              Esta validação provou que dá para ser <strong>honesto sem perder performance</strong>.
+              No pipeline final de produção (pasta <code className="bg-white/10 px-1 rounded">aplicacao_modelo</code>),
+              fizemos fine tuning entre os candidatos <strong>sem vazamento</strong> e a
+              <strong> Regressão Logística</strong> foi a escolhida para o serviço: recall
+              <strong> 91,5%</strong>, ROC-AUC <strong>0,957</strong>, gap de overfit <strong>~0</strong>
+              e totalmente interpretável (SHAP). É esse o modelo que responde no app da Seção 10.
+            </p>
+          </div>
         </div>
       </div>
     </Section>
