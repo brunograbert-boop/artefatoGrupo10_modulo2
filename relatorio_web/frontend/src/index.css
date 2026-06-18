@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-inteli-gray-bg text-inteli-gray-text font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-semibold text-inteli-navy;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-inteli-gray-card rounded-lg shadow-card border border-inteli-gray-border;
+  }
+
+  .section-header {
+    @apply bg-inteli-navy text-white px-6 py-3 rounded-t-lg font-semibold tracking-wide text-sm uppercase;
+  }
+
+  .section-header-petrol {
+    @apply bg-inteli-petrol text-white px-6 py-3 rounded-t-lg font-semibold tracking-wide text-sm uppercase;
+  }
+
+  .btn-primary {
+    @apply bg-inteli-red hover:bg-inteli-red-dark text-white font-medium px-4 py-2 rounded-md transition-colors;
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "meta": {
+    "generated_at": "2026-06-01T21:01:35.371888",
+    "dataset": "gym_churn_us.csv (4.000 assinantes Vitaliza)",
+    "ticket_medio_mensal": 39.9,
+    "cac": 142.0,
+    "churn_global": 0.26525,
+    "n_total": 4000
+  },
+  "eda": {
+    "churn_global": 0.26525,
+    "contract_breakdown": [
+      {
+        "contract": 1,
+        "n": 2207,
+        "churn_rate": 0.4231989125509742
+      },
+      {
+        "contract": 6,
+        "n": 833,
+        "churn_rate": 0.12484993997599039
+      },
+      {
+        "contract": 12,
+        "n": 960,
+        "churn_rate": 0.023958333333333335
+      }
+    ],
+    "lifetime_breakdown": [
+      {
+        "bucket": "0 meses",
+        "n": 487,
+        "churn_rate": 0.8275154004106776
+      },
+      {
+        "bucket": "1 mes",
+        "n": 843,
+        "churn_rate": 0.49110320284697506
+      },
+      {
+        "bucket": "2-3 meses",
+        "n": 1100,
+        "churn_rate": 0.18818181818181817
+      },
+      {
+        "bucket": "4-6 meses",
+        "n": 876,
+        "churn_rate": 0.03995433789954338
+      },
+      {
+        "bucket": "7+ meses",
+        "n": 694,
+        "churn_rate": 0.002881844380403458
+      }
+    ],
+    "freq_breakdown": [
+      {
+        "bucket": "<0,5/sem",
+        "n": 502,
+        "churn_rate": 0.5796812749003984
+      },
+      {
+        "bucket": "0,5-1,5",
+        "n": 1191,
+        "churn_rate": 0.399664147774979
+      },
+      {
+        "bucket": "1,5-2,5",
+        "n": 1294,
+        "churn_rate": 0.19242658423493045
+      },
+      {
+        "bucket": "2,5-3,5",
+        "n": 796,
+        "churn_rate": 0.05527638190954774
+      },
+      {
+        "bucket": "3,5+/sem",
+        "n": 217,
+        "churn_rate": 0.004608294930875576
+      }
+    ],
+    "correlations": [
+      {
+        "feature": "Lifetime",
+        "corr": -0.43821996844797967
+      },
+      {
+        "feature": "Avg_class_frequency_current_month",
+        "corr": -0.41234839070726526
+      },
+      {
+        "feature": "Age",
+        "corr": -0.4047352528235887
+      },
+      {
+        "feature": "Contract_period",
+        "corr": -0.38998421158607827
+      },
+      {
+        "feature": "Month_to_end_contract",
+        "corr": -0.381392983695714
+      },
+      {
+        "feature": "Avg_class_frequency_total",
+        "corr": -0.24971511133289484
+      },
+      {
+        "feature": "Avg_additional_charges_total",
+        "corr": -0.19869745106820316
+      },
+      {
+        "feature": "Group_visits",
+        "corr": -0.17532465549814902
+      },
+      {
+        "feature": "Promo_friends",
+        "corr": -0.1622330778335148
+      },
+      {
+        "feature": "Partner",
+        "corr": -0.15798573698509757
+      },
+      {
+        "feature": "Near_Location",
+        "corr": -0.12809799029981037
+      },
+      {
+        "feature": "Phone",
+        "corr": -0.0011766013624798532
+      },
+      {
+        "feature": "gender",
+        "corr": 0.0007077339851530629
+      }
+    ]
+  },
+  "clustering": {
+    "k_final": 4,
+    "elbow_silhouette": [
+      {
+        "k": 2,
+        "inertia": 43975.005881003286,
+        "silhouette": 0.1646818271752276
+      },
+      {
+        "k": 3,
+        "inertia": 40164.917569455196,
+        "silhouette": 0.12647135389538858
+      },
+      {
+        "k": 4,
+        "inertia": 37258.255431522084,
+        "silhouette": 0.1339785023167519
+      },
+      {
+        "k": 5,
+        "inertia": 35432.994560283216,
+        "silhouette": 0.1280869801033356
+      },
+      {
+        "k": 6,
+        "inertia": 33057.3526619979,
+        "silhouette": 0.1255685957335296
+      },
+      {
+        "k": 7,
+        "inertia": 31698.04501398684,
+        "silhouette": 0.12633350658568798
+      },
+      {
+        "k": 8,
+        "inertia": 30587.557375395932,
+        "silhouette": 0.12655245180356334
+      }
+    ]
+  },
+  "clusters": [
+    {
+      "id": 0,
+      "name": "Renata",
+      "archetype": "Leal de Contrato Longo",
+      "color": "#27AE60",
+      "quadrant": "True Friends",
+      "action": "Manter engajamento. Foco em upsell, NAO em desconto.",
+      "channel": "Email/notificacao soft de renovacao 60 dias antes do vencimento",
+      "n": 1082,
+      "share": 0.2705,
+      "churn_rate": 0.029574861367837338,
+      "lift": 0.11149806359222371,
+      "contract": 10.685767097966728,
+      "lifetime": 4.720887245841035,
+      "freq_total": 1.9913506133496903,
+      "freq_current": 1.9830426643364703,
+      "age": 29.89648798521257,
+      "extras": 161.1027343661426,
+      "group_visits": 0.533271719038817,
+      "promo_friends": 0.5739371534195934,
+      "partner": 0.7781885397412199,
+      "ltv_estimado": 1510.2214843661425,
+      "valor_agregado": 1634059.6460841661,
+      "prob_churn_modelo": 0.034758281164330246
+    },
+    {
+      "id": 1,
+      "name": "Elisa",
+      "archetype": "Engajada Mensal",
+      "color": "#3498DB",
+      "quadrant": "Butterflies",
+      "action": "Upsell para plano semestral/anual. Pequeno incentivo (1 mes gratis).",
+      "channel": "Push + email com oferta de upgrade contextual",
+      "n": 1062,
+      "share": 0.2655,
+      "churn_rate": 0.09227871939736347,
+      "lift": 0.3478933813284203,
+      "contract": 2.3860640301318266,
+      "lifetime": 4.714689265536723,
+      "freq_total": 2.7112423748826124,
+      "freq_current": 2.69789802607333,
+      "age": 30.01789077212806,
+      "extras": 157.4666470206892,
+      "group_visits": 0.448210922787194,
+      "promo_friends": 0.20056497175141244,
+      "partner": 0.3389830508474576,
+      "ltv_estimado": 589.8523613064035,
+      "valor_agregado": 626423.2077074006,
+      "prob_churn_modelo": 0.09060387059925662
+    },
+    {
+      "id": 2,
+      "name": "Rafael",
+      "archetype": "No Limbo do Risco Medio",
+      "color": "#F39C12",
+      "quadrant": "Barnacles (parcial)",
+      "action": "Monitoramento ativo + nudges leves. NAO ofertar desconto.",
+      "channel": "Email com programa novo / desafio em grupo",
+      "n": 386,
+      "share": 0.0965,
+      "churn_rate": 0.266839378238342,
+      "lift": 1.0059920008985561,
+      "contract": 4.77720207253886,
+      "lifetime": 3.9404145077720205,
+      "freq_total": 1.8542105514064655,
+      "freq_current": 1.723966967907982,
+      "age": 29.297927461139896,
+      "extras": 144.2081789959379,
+      "group_visits": 0.4274611398963731,
+      "promo_friends": 0.30569948186528495,
+      "partner": 0.47150259067357514,
+      "ltv_estimado": 293.7363343357438,
+      "valor_agregado": 113382.2250535971,
+      "prob_churn_modelo": 0.26482929052963733
+    },
+    {
+      "id": 3,
+      "name": "Julia",
+      "archetype": "Early Dropout",
+      "color": "#E74C3C",
+      "quadrant": "Strangers",
+      "action": "Caminho B (proativo) nas primeiras 4 semanas. Caminho A nao funciona aqui.",
+      "channel": "Onboarding gamificado, desafio em grupo nas primeiras 2 semanas",
+      "n": 1470,
+      "share": 0.3675,
+      "churn_rate": 0.563265306122449,
+      "lift": 2.123526130527612,
+      "contract": 1.8945578231292517,
+      "lifetime": 2.2197278911564626,
+      "freq_total": 1.201614157501463,
+      "freq_current": 0.9468953551344298,
+      "age": 28.027891156462584,
+      "extras": 129.63797035675495,
+      "group_visits": 0.2931972789115646,
+      "promo_friends": 0.19183673469387755,
+      "partner": 0.38299319727891157,
+      "ltv_estimado": 200.47492687849407,
+      "valor_agregado": 294698.1425113863,
+      "prob_churn_modelo": 0.5552612771574118
+    }
+  ],
+  "models": {
+    "results": [
+      {
+        "modelo": "Gradient Boosting",
+        "familia": "Arvores (Boosting)",
+        "acuracia": 0.937,
+        "precisao": 0.907258064516129,
+        "recall": 0.8490566037735849,
+        "f1": 0.8771929824561403,
+        "roc_auc": 0.9780310614811962
+      },
+      {
+        "modelo": "MLP (32-16)",
+        "familia": "Redes Neurais",
+        "acuracia": 0.945,
+        "precisao": 0.9038461538461539,
+        "recall": 0.8867924528301887,
+        "f1": 0.8952380952380953,
+        "roc_auc": 0.9772506738544475
+      },
+      {
+        "modelo": "SVM Linear",
+        "familia": "Lineares",
+        "acuracia": 0.923,
+        "precisao": 0.873015873015873,
+        "recall": 0.8301886792452831,
+        "f1": 0.851063829787234,
+        "roc_auc": 0.9756693620844564
+      },
+      {
+        "modelo": "Regressao Logistica",
+        "familia": "Lineares",
+        "acuracia": 0.919,
+        "precisao": 0.868,
+        "recall": 0.8188679245283019,
+        "f1": 0.8427184466019417,
+        "roc_auc": 0.9753356436914388
+      },
+      {
+        "modelo": "Random Forest",
+        "familia": "Arvores (Bagging)",
+        "acuracia": 0.912,
+        "precisao": 0.8702928870292888,
+        "recall": 0.7849056603773585,
+        "f1": 0.8253968253968254,
+        "roc_auc": 0.9634501347708894
+      },
+      {
+        "modelo": "Perceptron",
+        "familia": "Lineares",
+        "acuracia": 0.904,
+        "precisao": 0.8313725490196079,
+        "recall": 0.8,
+        "f1": 0.8153846153846154,
+        "roc_auc": 0.9603593890386344
+      },
+      {
+        "modelo": "Naive Bayes",
+        "familia": "Probabilisticos",
+        "acuracia": 0.862,
+        "precisao": 0.6930091185410334,
+        "recall": 0.8603773584905661,
+        "f1": 0.7676767676767676,
+        "roc_auc": 0.9374868437941215
+      },
+      {
+        "modelo": "KNN (k=5)",
+        "familia": "Distancia",
+        "acuracia": 0.873,
+        "precisao": 0.7804878048780488,
+        "recall": 0.7245283018867924,
+        "f1": 0.7514677103718199,
+        "roc_auc": 0.9096495956873316
+      },
+      {
+        "modelo": "Arvore de Decisao",
+        "familia": "Arvores",
+        "acuracia": 0.897,
+        "precisao": 0.8347107438016529,
+        "recall": 0.7622641509433963,
+        "f1": 0.796844181459566,
+        "roc_auc": 0.9094776023616995
+      }
+    ],
+    "best_model": "Gradient Boosting",
+    "confusion_matrix": [
+      [
+        712,
+        23
+      ],
+      [
+        40,
+        225
+      ]
+    ],
+    "feature_importance": [
+      {
+        "feature": "Lifetime",
+        "importance": 0.4343271734096295
+      },
+      {
+        "feature": "Avg_class_frequency_current_month",
+        "importance": 0.16791416369871362
+      },
+      {
+        "feature": "Age",
+        "importance": 0.11512813447389737
+      },
+      {
+        "feature": "Avg_class_frequency_total",
+        "importance": 0.11197566400352263
+      },
+      {
+        "feature": "Month_to_end_contract",
+        "importance": 0.09193820878825876
+      },
+      {
+        "feature": "Contract_period",
+        "importance": 0.04236273082186034
+      },
+      {
+        "feature": "Avg_additional_charges_total",
+        "importance": 0.027674045653622928
+      },
+      {
+        "feature": "Group_visits",
+        "importance": 0.006337174573902064
+      },
+      {
+        "feature": "Promo_friends",
+        "importance": 0.0010232232058501752
+      },
+      {
+        "feature": "gender",
+        "importance": 0.0008120343776083259
+      },
+      {
+        "feature": "Near_Location",
+        "importance": 0.00022258784748174665
+      },
+      {
+        "feature": "Phone",
+        "importance": 0.00020848615782454694
+      },
+      {
+        "feature": "Partner",
+        "importance": 7.637298782813095e-05
+      }
+    ],
+    "tree_rules": "|--- Lifetime <= 1.50\n|   |--- Month_to_end_contract <= 5.50\n|   |   |--- Avg_class_frequency_current_month <= 2.34\n|   |   |   |--- Age <= 30.50\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Age >  30.50\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |--- Avg_class_frequency_current_month >  2.34\n|   |   |   |--- Avg_class_frequency_total <= 2.41\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Avg_class_frequency_total >  2.41\n|   |   |   |   |--- truncated branch of depth 3\n|   |--- Month_to_end_contract >  5.50\n|   |   |--- Age <= 28.50\n|   |   |   |--- Avg_class_frequency_current_month <= 1.63\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Avg_class_frequency_current_month >  1.63\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |--- Age >  28.50\n|   |   |   |--- Age <= 29.50\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Age >  29.50\n|   |   |   |   |--- truncated branch of depth 3\n|--- Lifetime >  1.50\n|   |--- Lifetime <= 2.50\n|   |   |--- Month_to_end_contract <= 2.00\n|   |   |   |--- Avg_class_frequency_current_month <= 1.87\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Avg_class_frequency_current_month >  1.87\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |--- Month_to_end_contract >  2.00\n|   |   |   |--- Age <= 25.50\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Age >  25.50\n|   |   |   |   |--- truncated branch of depth 3\n|   |--- Lifetime >  2.50\n|   |   |--- Avg_class_frequency_current_month <= 1.31\n|   |   |   |--- Avg_class_frequency_total <= 1.42\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |   |--- Avg_class_frequency_total >  1.42\n|   |   |   |   |--- truncated branch of depth 3\n|   |   |--- Avg_class_frequency_current_month >  1.31\n|   |   |   |--- Avg_class_frequency_total <= 1.13\n|   |   |   |   |--- class: 1\n|   |   |   |--- Avg_class_frequency_total >  1.13\n|   |   |   |   |--- truncated branch of depth 3\n"
+  },
+  "matrix": [
+    {
+      "id": 0,
+      "persona": "Renata",
+      "archetype": "Leal de Contrato Longo",
+      "color": "#27AE60",
+      "quadrant": "True Friends",
+      "x_risco": 0.034758281164330246,
+      "y_valor_agregado": 1634059.6460841661,
+      "n": 1082,
+      "share": 0.2705,
+      "churn_rate": 0.029574861367837338,
+      "ltv": 1510.2214843661425
+    },
+    {
+      "id": 1,
+      "persona": "Elisa",
+      "archetype": "Engajada Mensal",
+      "color": "#3498DB",
+      "quadrant": "Butterflies",
+      "x_risco": 0.09060387059925662,
+      "y_valor_agregado": 626423.2077074006,
+      "n": 1062,
+      "share": 0.2655,
+      "churn_rate": 0.09227871939736347,
+      "ltv": 589.8523613064035
+    },
+    {
+      "id": 2,
+      "persona": "Rafael",
+      "archetype": "No Limbo do Risco Medio",
+      "color": "#F39C12",
+      "quadrant": "Barnacles (parcial)",
+      "x_risco": 0.26482929052963733,
+      "y_valor_agregado": 113382.2250535971,
+      "n": 386,
+      "share": 0.0965,
+      "churn_rate": 0.266839378238342,
+      "ltv": 293.7363343357438
+    },
+    {
+      "id": 3,
+      "persona": "Julia",
+      "archetype": "Early Dropout",
+      "color": "#E74C3C",
+      "quadrant": "Strangers",
+      "x_risco": 0.5552612771574118,
+      "y_valor_agregado": 294698.1425113863,
+      "n": 1470,
+      "share": 0.3675,
+      "churn_rate": 0.563265306122449,
+      "ltv": 200.47492687849407
+    }
+  ],
+  "validation": {
+    "plan": {
+      "leaky_features_removed": [
+        "Avg_class_frequency_current_month",
+        "Month_to_end_contract"
+      ],
+      "features_used": [
+        "gender",
+        "Near_Location",
+        "Partner",
+        "Promo_friends",
+        "Phone",
+        "Contract_period",
+        "Group_visits",
+        "Age",
+        "Avg_additional_charges_total",
+        "Lifetime",
+        "Avg_class_frequency_total"
+      ],
+      "n_features": 11,
+      "test_size_pct": 0.2,
+      "random_state": 42
+    },
+    "partitions": {
+      "persona_0_renata": {
+        "n": 976,
+        "churn_rate": 0.11270491803278689
+      },
+      "persona_1_elisa": {
+        "n": 317,
+        "churn_rate": 0.26498422712933756
+      },
+      "persona_2_rafael": {
+        "n": 1453,
+        "churn_rate": 0.3234686854783207
+      },
+      "persona_3_julia": {
+        "n": 454,
+        "churn_rate": 0.40748898678414097
+      },
+      "test_holdout": {
+        "n": 800,
+        "churn_rate": 0.265
+      }
+    },
+    "cluster_overlap": {
+      "overlap_pct": 0.2921875,
+      "confusion_matrix_orig_vs_new": [
+        [
+          642,
+          0,
+          148,
+          42
+        ],
+        [
+          176,
+          0,
+          573,
+          119
+        ],
+        [
+          0,
+          317,
+          0,
+          0
+        ],
+        [
+          158,
+          0,
+          732,
+          293
+        ]
+      ]
+    },
+    "global_metrics": {
+      "gb_padrao": {
+        "acuracia": 0.9025,
+        "precisao": 0.8418367346938775,
+        "recall": 0.7783018867924528,
+        "f1": 0.8088235294117647,
+        "roc_auc": 0.952156334231806,
+        "cm": [
+          [
+            557,
+            31
+          ],
+          [
+            47,
+            165
+          ]
+        ]
+      },
+      "gb_balanced": {
+        "acuracia": 0.8925,
+        "precisao": 0.7560975609756098,
+        "recall": 0.8773584905660378,
+        "f1": 0.8122270742358079,
+        "roc_auc": 0.9523889744577076,
+        "cm": [
+          [
+            528,
+            60
+          ],
+          [
+            26,
+            186
+          ]
+        ]
+      },
+      "gb_padrao_auc_train": 0.9850012449906037,
+      "gb_padrao_overfit_gap": 0.032844910758797696,
+      "gb_original_com_leakage_auc": 0.9780310614811962,
+      "gb_original_com_leakage_recall": 0.8490566037735849
+    },
+    "per_persona": [
+      {
+        "cluster_id": 0,
+        "n_test": 262,
+        "churn_rate_test": 0.08396946564885496,
+        "recall_padrao": 0.7727272727272727,
+        "precision_padrao": 0.8095238095238095,
+        "recall_balanced": 0.8636363636363636,
+        "precision_balanced": 0.6551724137931034
+      },
+      {
+        "cluster_id": 1,
+        "n_test": 69,
+        "churn_rate_test": 0.2753623188405797,
+        "recall_padrao": 0.7368421052631579,
+        "precision_padrao": 0.875,
+        "recall_balanced": 0.7894736842105263,
+        "precision_balanced": 0.7142857142857143
+      },
+      {
+        "cluster_id": 2,
+        "n_test": 362,
+        "churn_rate_test": 0.36464088397790057,
+        "recall_padrao": 0.7878787878787878,
+        "precision_padrao": 0.832,
+        "recall_balanced": 0.8939393939393939,
+        "precision_balanced": 0.7612903225806451
+      },
+      {
+        "cluster_id": 3,
+        "n_test": 107,
+        "churn_rate_test": 0.3644859813084112,
+        "recall_padrao": 0.7692307692307693,
+        "precision_padrao": 0.8823529411764706,
+        "recall_balanced": 0.8717948717948718,
+        "precision_balanced": 0.8292682926829268
+      }
+    ]
+  }
+}

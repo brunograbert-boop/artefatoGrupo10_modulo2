@@ -1,0 +1,12 @@
+# Versoes FIXADAS para reproduzir o ambiente que gerou os .joblib.
+# O artefato e um pickle do scikit-learn: divergencia de versao do sklearn no
+# host pode quebrar o load do modelo em producao. Manter scikit-learn no pin.
+# Ambiente de referencia: Python 3.14 (cp314). Em deploy, use Python >= 3.12.
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+streamlit==1.57.0
+click==8.4.1
+joblib==1.5.3
+matplotlib==3.10.9
+shap==0.52.0

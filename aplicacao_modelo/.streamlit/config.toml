@@ -1,0 +1,14 @@
+# Config do servico Streamlit (Aula 07 - deploy).
+# Em deploy gerenciado (Streamlit Community Cloud / Render), headless evita abrir
+# navegador local e a porta e definida pela plataforma.
+[server]
+headless = true
+enableXsrfProtection = true
+
+[theme]
+base = "light"
+primaryColor = "#2a9d8f"
+backgroundColor = "#ffffff"
+
+[browser]
+gatherUsageStats = false

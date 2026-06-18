@@ -1,0 +1,20 @@
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Streamlit secrets (NUNCA versionar a chave do OpenRouter)
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Observação: dist/ e *.joblib SÃO versionados de propósito
+#  - dist/ permite abrir o relatório offline sem build
+#  - *.joblib são os artefatos servidos pelo app (pequenos)

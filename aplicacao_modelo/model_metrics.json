@@ -1,0 +1,446 @@
+{
+  "served_model": "LogisticRegression (tunada) (sem vazamento)",
+  "model_kind": "linear",
+  "best_params": {
+    "C": 0.5,
+    "penalty": "l2"
+  },
+  "served_metrics": {
+    "accuracy": 0.885,
+    "precision": 0.7238805970149254,
+    "recall": 0.9150943396226415,
+    "f1": 0.8083333333333333,
+    "roc_auc": 0.956929469901168,
+    "auc_train": 0.9577920630220755,
+    "overfit_gap": 0.0008625931209075288,
+    "cv_auc_mean": 0.9563004381741326,
+    "cv_auc_std": 0.009141419206085877,
+    "cm": [
+      [
+        514,
+        74
+      ],
+      [
+        18,
+        194
+      ]
+    ]
+  },
+  "comparison": {
+    "com_vazamento": {
+      "features": [
+        "gender",
+        "Near_Location",
+        "Partner",
+        "Promo_friends",
+        "Phone",
+        "Contract_period",
+        "Group_visits",
+        "Age",
+        "Avg_additional_charges_total",
+        "Month_to_end_contract",
+        "Lifetime",
+        "Avg_class_frequency_total",
+        "Avg_class_frequency_current_month"
+      ],
+      "modelos": {
+        "LogisticRegression": {
+          "accuracy": 0.9225,
+          "precision": 0.8151260504201681,
+          "recall": 0.9150943396226415,
+          "f1": 0.8622222222222222,
+          "roc_auc": 0.976848286484405,
+          "auc_train": 0.977174337261692,
+          "overfit_gap": 0.0003260507772869792,
+          "cv_auc_mean": 0.9752467530731834,
+          "cv_auc_std": 0.004857951297240363,
+          "cm": [
+            [
+              544,
+              44
+            ],
+            [
+              18,
+              194
+            ]
+          ]
+        },
+        "RandomForest": {
+          "accuracy": 0.90625,
+          "precision": 0.7914893617021277,
+          "recall": 0.8773584905660378,
+          "f1": 0.8322147651006712,
+          "roc_auc": 0.9613015017327685,
+          "auc_train": 0.9884513970197379,
+          "overfit_gap": 0.027149895286969428,
+          "cv_auc_mean": 0.9642445676978383,
+          "cv_auc_std": 0.007104324003557216,
+          "cm": [
+            [
+              539,
+              49
+            ],
+            [
+              26,
+              186
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "accuracy": 0.94375,
+          "precision": 0.9195979899497487,
+          "recall": 0.8632075471698113,
+          "f1": 0.8905109489051095,
+          "roc_auc": 0.9793271082017712,
+          "auc_train": 0.9959987454903535,
+          "overfit_gap": 0.01667163728858234,
+          "cv_auc_mean": 0.9806950202407716,
+          "cv_auc_std": 0.004037944059582109,
+          "cm": [
+            [
+              572,
+              16
+            ],
+            [
+              29,
+              183
+            ]
+          ]
+        }
+      },
+      "melhor": "GradientBoosting"
+    },
+    "sem_vazamento": {
+      "features": [
+        "gender",
+        "Near_Location",
+        "Partner",
+        "Promo_friends",
+        "Phone",
+        "Contract_period",
+        "Group_visits",
+        "Age",
+        "Avg_additional_charges_total",
+        "Lifetime",
+        "Avg_class_frequency_total"
+      ],
+      "modelos": {
+        "LogisticRegression": {
+          "accuracy": 0.8875,
+          "precision": 0.7293233082706767,
+          "recall": 0.9150943396226415,
+          "f1": 0.8117154811715481,
+          "roc_auc": 0.9569054036709024,
+          "auc_train": 0.9578451692611069,
+          "overfit_gap": 0.0009397655902044777,
+          "cv_auc_mean": 0.956280138644266,
+          "cv_auc_std": 0.009269798303629269,
+          "cm": [
+            [
+              516,
+              72
+            ],
+            [
+              18,
+              194
+            ]
+          ]
+        },
+        "RandomForest": {
+          "accuracy": 0.89875,
+          "precision": 0.7811158798283262,
+          "recall": 0.8584905660377359,
+          "f1": 0.8179775280898877,
+          "roc_auc": 0.9501347708894877,
+          "auc_train": 0.9826427768751386,
+          "overfit_gap": 0.032508005985650845,
+          "cv_auc_mean": 0.9540690807164026,
+          "cv_auc_std": 0.009279745005523211,
+          "cm": [
+            [
+              537,
+              51
+            ],
+            [
+              30,
+              182
+            ]
+          ]
+        },
+        "GradientBoosting": {
+          "accuracy": 0.90875,
+          "precision": 0.8601036269430051,
+          "recall": 0.7830188679245284,
+          "f1": 0.8197530864197531,
+          "roc_auc": 0.9538810807341804,
+          "auc_train": 0.9816512934124715,
+          "overfit_gap": 0.02777021267829105,
+          "cv_auc_mean": 0.9544428136270854,
+          "cv_auc_std": 0.0093215363590189,
+          "cm": [
+            [
+              561,
+              27
+            ],
+            [
+              46,
+              166
+            ]
+          ]
+        },
+        "GradientBoosting (tunado)": {
+          "accuracy": 0.91,
+          "precision": 0.8571428571428571,
+          "recall": 0.7924528301886793,
+          "f1": 0.8235294117647058,
+          "roc_auc": 0.9562074829931972,
+          "auc_train": 0.9703359069819173,
+          "overfit_gap": 0.014128423988720051,
+          "cv_auc_mean": 0.9564493154288813,
+          "cv_auc_std": 0.00945978180752741,
+          "cm": [
+            [
+              560,
+              28
+            ],
+            [
+              44,
+              168
+            ]
+          ]
+        },
+        "LogisticRegression (tunada)": {
+          "accuracy": 0.885,
+          "precision": 0.7238805970149254,
+          "recall": 0.9150943396226415,
+          "f1": 0.8083333333333333,
+          "roc_auc": 0.956929469901168,
+          "auc_train": 0.9577920630220755,
+          "overfit_gap": 0.0008625931209075288,
+          "cv_auc_mean": 0.9563004381741326,
+          "cv_auc_std": 0.009141419206085877,
+          "cm": [
+            [
+              514,
+              74
+            ],
+            [
+              18,
+              194
+            ]
+          ]
+        }
+      },
+      "melhor": "LogisticRegression (tunada)"
+    },
+    "delta_auc_vazamento": 0.02239763830060315
+  },
+  "leakage_table": [
+    {
+      "feature": "gender",
+      "corr_churn": 0.0007077339851530629,
+      "classe": "Aceitavel",
+      "justificativa": "Atributo estavel do cliente, conhecido no cadastro.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Near_Location",
+      "corr_churn": -0.12809799029981037,
+      "classe": "Aceitavel",
+      "justificativa": "Conhecido no cadastro; nao depende do futuro.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Partner",
+      "corr_churn": -0.15798573698509757,
+      "classe": "Aceitavel",
+      "justificativa": "Vinculo com empresa parceira, conhecido no cadastro.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Promo_friends",
+      "corr_churn": -0.1622330778335148,
+      "classe": "Aceitavel",
+      "justificativa": "Adesao a promocao, conhecida no cadastro.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Phone",
+      "corr_churn": -0.0011766013624798532,
+      "classe": "Aceitavel",
+      "justificativa": "Dado de contato, conhecido no cadastro.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Contract_period",
+      "corr_churn": -0.38998421158607827,
+      "classe": "Aceitavel",
+      "justificativa": "Duracao contratada, conhecida na assinatura.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Group_visits",
+      "corr_churn": -0.17532465549814902,
+      "classe": "Aceitavel",
+      "justificativa": "Habito de aulas em grupo, observavel cedo.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Age",
+      "corr_churn": -0.4047352528235887,
+      "classe": "Aceitavel",
+      "justificativa": "Atributo estavel do cliente.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Avg_additional_charges_total",
+      "corr_churn": -0.19869745106820316,
+      "classe": "Aceitavel",
+      "justificativa": "Gasto extra acumulado; disponivel progressivamente, usavel com cautela.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Month_to_end_contract",
+      "corr_churn": -0.381392983695714,
+      "classe": "Proxy tardio",
+      "justificativa": "Meses ate o fim do contrato: mecanicamente ligado ao momento de nao renovar. Co-temporal ao evento, indisponivel para intervencao antecipada.",
+      "usada_no_modelo_servido": false
+    },
+    {
+      "feature": "Lifetime",
+      "corr_churn": -0.43821996844797967,
+      "classe": "Aceitavel",
+      "justificativa": "Tempo de casa; cresce de forma previsivel e antecipada.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Avg_class_frequency_total",
+      "corr_churn": -0.24971511133289484,
+      "classe": "Aceitavel",
+      "justificativa": "Frequencia historica media; sinal de engajamento usavel com cautela.",
+      "usada_no_modelo_servido": true
+    },
+    {
+      "feature": "Avg_class_frequency_current_month",
+      "corr_churn": -0.41234839070726526,
+      "classe": "Proxy tardio",
+      "justificativa": "Frequencia DO mes corrente: quem ja esta saindo parou de ir. Altamente correlacionada, mas so se materializa junto com o churn - tarde demais para intervir.",
+      "usada_no_modelo_servido": false
+    }
+  ],
+  "importance": [
+    {
+      "feature": "Lifetime",
+      "importance": 3.5308092087978302
+    },
+    {
+      "feature": "Contract_period",
+      "importance": 1.3508923538393212
+    },
+    {
+      "feature": "Age",
+      "importance": 1.1397870596561217
+    },
+    {
+      "feature": "Avg_class_frequency_total",
+      "importance": 0.7241361080313707
+    },
+    {
+      "feature": "Avg_additional_charges_total",
+      "importance": 0.539845011068775
+    },
+    {
+      "feature": "Group_visits",
+      "importance": 0.34853399431248716
+    },
+    {
+      "feature": "Promo_friends",
+      "importance": 0.19107143250856298
+    },
+    {
+      "feature": "Phone",
+      "importance": 0.09419891277891879
+    },
+    {
+      "feature": "Near_Location",
+      "importance": 0.08624862460934357
+    },
+    {
+      "feature": "gender",
+      "importance": 0.04141902802577382
+    },
+    {
+      "feature": "Partner",
+      "importance": 0.03318428732979071
+    }
+  ],
+  "feature_ranges": {
+    "gender": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.51025,
+      "median": 1.0
+    },
+    "Near_Location": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.84525,
+      "median": 1.0
+    },
+    "Partner": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.48675,
+      "median": 0.0
+    },
+    "Promo_friends": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.3085,
+      "median": 0.0
+    },
+    "Phone": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.9035,
+      "median": 1.0
+    },
+    "Contract_period": {
+      "min": 1.0,
+      "max": 12.0,
+      "mean": 4.68125,
+      "median": 1.0
+    },
+    "Group_visits": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.41225,
+      "median": 0.0
+    },
+    "Age": {
+      "min": 18.0,
+      "max": 41.0,
+      "mean": 29.18425,
+      "median": 29.0
+    },
+    "Avg_additional_charges_total": {
+      "min": 0.1482047884566242,
+      "max": 552.5907403868798,
+      "mean": 146.94372780925002,
+      "median": 136.22015897103688
+    },
+    "Lifetime": {
+      "min": 0.0,
+      "max": 31.0,
+      "mean": 3.72475,
+      "median": 3.0
+    },
+    "Avg_class_frequency_total": {
+      "min": 0.0,
+      "max": 6.02366847599591,
+      "mean": 1.8790197125349366,
+      "median": 1.8327684121134056
+    }
+  },
+  "churn_rate": 0.26525
+}

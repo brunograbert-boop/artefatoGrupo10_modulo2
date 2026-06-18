@@ -1,0 +1,169 @@
+{
+  "profiles": [
+    {
+      "cluster": 0,
+      "size": 1246,
+      "share": 0.3115,
+      "churn_rate": 0.10593900481540931,
+      "lift_vs_base": 0.39939304360192013,
+      "means": {
+        "gender": 0.4895666131621188,
+        "Near_Location": 0.9959871589085072,
+        "Partner": 0.9414125200642055,
+        "Promo_friends": 0.7712680577849117,
+        "Phone": 1.0,
+        "Contract_period": 7.784911717495987,
+        "Group_visits": 0.5136436597110754,
+        "Age": 29.65971107544141,
+        "Avg_additional_charges_total": 157.1720041114976,
+        "Month_to_end_contract": 7.068218298555378,
+        "Lifetime": 4.521669341894061,
+        "Avg_class_frequency_total": 1.979865945484668,
+        "Avg_class_frequency_current_month": 1.9401948140559162
+      }
+    },
+    {
+      "cluster": 1,
+      "size": 386,
+      "share": 0.0965,
+      "churn_rate": 0.266839378238342,
+      "lift_vs_base": 1.0059920008985561,
+      "means": {
+        "gender": 0.5233160621761658,
+        "Near_Location": 0.8626943005181347,
+        "Partner": 0.47150259067357514,
+        "Promo_friends": 0.30569948186528495,
+        "Phone": 0.0,
+        "Contract_period": 4.77720207253886,
+        "Group_visits": 0.4274611398963731,
+        "Age": 29.297927461139896,
+        "Avg_additional_charges_total": 144.2081789959379,
+        "Month_to_end_contract": 4.466321243523316,
+        "Lifetime": 3.9404145077720205,
+        "Avg_class_frequency_total": 1.8542105514064655,
+        "Avg_class_frequency_current_month": 1.723966967907982
+      }
+    },
+    {
+      "cluster": 2,
+      "size": 1807,
+      "share": 0.45175,
+      "churn_rate": 0.33314886552296624,
+      "lift_vs_base": 1.2559806428764044,
+      "means": {
+        "gender": 0.5251798561151079,
+        "Near_Location": 1.0,
+        "Partner": 0.17598229109020475,
+        "Promo_friends": 0.06198118428334256,
+        "Phone": 1.0,
+        "Contract_period": 3.032650802434975,
+        "Group_visits": 0.39402324294410623,
+        "Age": 28.975650249031546,
+        "Avg_additional_charges_total": 143.39473809068596,
+        "Month_to_end_contract": 2.8550083010514666,
+        "Lifetime": 3.3353624792473715,
+        "Avg_class_frequency_total": 1.8484997368772222,
+        "Avg_class_frequency_current_month": 1.7066741482225474
+      }
+    },
+    {
+      "cluster": 3,
+      "size": 561,
+      "share": 0.14025,
+      "churn_rate": 0.39928698752228164,
+      "lift_vs_base": 1.5053232328832484,
+      "means": {
+        "gender": 0.49910873440285203,
+        "Near_Location": 0.0,
+        "Partner": 0.48841354723707664,
+        "Promo_friends": 0.0766488413547237,
+        "Phone": 1.0,
+        "Contract_period": 3.0320855614973263,
+        "Group_visits": 0.23529411764705882,
+        "Age": 28.72192513368984,
+        "Avg_additional_charges_total": 137.54000943274949,
+        "Month_to_end_contract": 2.8538324420677363,
+        "Lifetime": 3.0606060606060606,
+        "Avg_class_frequency_total": 1.7704128069265825,
+        "Avg_class_frequency_current_month": 1.606618742241952
+      }
+    }
+  ],
+  "names": {
+    "0": {
+      "nome": "Leais - Baixo Risco",
+      "descricao": "Churn de 11% (0.4x a base). Perfil: contratos mais longos."
+    },
+    "1": {
+      "nome": "Engajados - Risco Baixo a Medio",
+      "descricao": "Churn de 27% (1.0x a base). Perfil: perfil misto."
+    },
+    "2": {
+      "nome": "Atencao - Risco Medio",
+      "descricao": "Churn de 33% (1.3x a base). Perfil: contratos curtos/mensais."
+    },
+    "3": {
+      "nome": "Criticos - Alto Risco",
+      "descricao": "Churn de 40% (1.5x a base). Perfil: contratos curtos/mensais."
+    }
+  },
+  "priority": [
+    {
+      "cluster": 2,
+      "nome": "Atencao - Risco Medio",
+      "share": 0.45175,
+      "churn_rate": 0.33314886552296624,
+      "score_prioridade": 0.1505,
+      "acao_recomendada": "Monitoramento ativo + nudges - Caminho B leve"
+    },
+    {
+      "cluster": 3,
+      "nome": "Criticos - Alto Risco",
+      "share": 0.14025,
+      "churn_rate": 0.39928698752228164,
+      "score_prioridade": 0.05600000000000001,
+      "acao_recomendada": "Monitoramento ativo + nudges - Caminho B leve"
+    },
+    {
+      "cluster": 0,
+      "nome": "Leais - Baixo Risco",
+      "share": 0.3115,
+      "churn_rate": 0.10593900481540931,
+      "score_prioridade": 0.033,
+      "acao_recomendada": "Manter engajamento - foco em upsell, sem intervencao agressiva"
+    },
+    {
+      "cluster": 1,
+      "nome": "Engajados - Risco Baixo a Medio",
+      "share": 0.0965,
+      "churn_rate": 0.266839378238342,
+      "score_prioridade": 0.025750000000000002,
+      "acao_recomendada": "Monitoramento ativo + nudges - Caminho B leve"
+    }
+  ],
+  "extras": {
+    "n_clientes": 4000,
+    "churn_global": 0.26525,
+    "churn_por_contrato": {
+      "1": 0.4231989125509742,
+      "6": 0.12484993997599039,
+      "12": 0.023958333333333335
+    },
+    "churn_por_promo_friends": {
+      "0": 0.31308749096167754,
+      "1": 0.1580226904376013
+    },
+    "churn_por_group_visits": {
+      "0": 0.33007230965546575,
+      "1": 0.17283201940570042
+    },
+    "churn_por_partner": {
+      "0": 0.33317096931320017,
+      "1": 0.1936312275295326
+    },
+    "media_lifetime_churners": 0.9905749293119699,
+    "media_lifetime_loyal": 4.711806736985369,
+    "media_freq_churners": 1.044545593398017,
+    "media_freq_loyal": 2.0278817330951804
+  }
+}
