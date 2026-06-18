@@ -8,7 +8,8 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+# dist NAO e ignorado nesta entrega: o build e versionado para abrir o
+# relatorio offline (relatorio_web/frontend/dist/index.html) sem precisar de npm.
 dist-ssr
 *.local
 
