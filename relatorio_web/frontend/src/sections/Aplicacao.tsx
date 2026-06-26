@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Section } from '../components/Section';
 
 // URL pública do app (Streamlit Community Cloud). Deixe vazio ('') enquanto não
 // houver deploy — a seção mostra as instruções para rodar localmente.
-const APP_URL = 'https://artefatogrupo10modulo2.streamlit.app/';
+// Exportada para o App pré-aquecer o app (acordar do standby) já na abertura.
+export const APP_URL = 'https://artefatogrupo10modulo2.streamlit.app/';
 // embed=true remove a barra/rodapé do Streamlit para incorporar limpo no iframe.
 const APP_EMBED_URL = APP_URL + (APP_URL.includes('?') ? '&' : '?') + 'embed=true';
 
@@ -29,8 +31,72 @@ const TABS = [
   },
 ];
 
+// Notificação (toast) exibida quando o leitor entra na Seção 10, lembrando que
+// o app do Streamlit pode estar adormecido e exige o clique em "Yes, get this
+// app back up!" para iniciar. Some sozinha após alguns segundos ou ao fechar.
+function WakeNotice() {
+  const [visible, setVisible] = useState(false);
+  const [closed, setClosed] = useState(false);
+
+  useEffect(() => {
+    if (!APP_URL) return; // sem app embutido, nada a avisar
+    const el = document.getElementById('aplicacao');
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          obs.disconnect(); // dispara só uma vez por carregamento
+        }
+      },
+      { threshold: 0.15 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    const t = window.setTimeout(() => setClosed(true), 14000); // auto-hide 14s
+    return () => window.clearTimeout(t);
+  }, [visible]);
+
+  if (!visible || closed) return null;
+
+  return (
+    <div
+      role="alert"
+      className="fixed bottom-6 right-6 z-[60] w-[22rem] max-w-[calc(100vw-2rem)] rounded-lg border border-amber-300 bg-amber-50 shadow-2xl ring-1 ring-black/5"
+    >
+      <div className="flex items-start gap-3 p-4">
+        <span className="text-xl leading-none" aria-hidden>💤</span>
+        <div className="flex-1">
+          <div className="text-sm font-semibold text-amber-900">
+            Iniciar a aplicação
+          </div>
+          <p className="mt-1 text-sm leading-relaxed text-amber-800">
+            Se o app abaixo aparecer <strong>adormecido</strong>, clique em{' '}
+            <strong>“Yes, get this app back up!”</strong> dentro do quadro para
+            iniciá-lo. Ele leva alguns segundos para subir.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setClosed(true)}
+          aria-label="Fechar aviso"
+          className="-mt-1 -mr-1 rounded p-1 text-amber-700 hover:bg-amber-100 hover:text-amber-900 transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function Aplicacao() {
   return (
+    <>
+    <WakeNotice />
     <Section
       id="aplicacao"
       track="all"
@@ -109,5 +175,6 @@ streamlit run app.py     # abre em http://localhost:8501`}
         </p>
       </div>
     </Section>
+    </>
   );
 }

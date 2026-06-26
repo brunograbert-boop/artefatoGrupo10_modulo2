@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Sumario } from './sections/Sumario';
@@ -10,13 +11,38 @@ import { Modelos } from './sections/Modelos';
 import { Matriz } from './sections/Matriz';
 import { Recomendacoes } from './sections/Recomendacoes';
 import { Limitacoes } from './sections/Limitacoes';
-import { Aplicacao } from './sections/Aplicacao';
+import { Aplicacao, APP_URL } from './sections/Aplicacao';
 import dataJson from './data/analysis_data.json';
 import type { AnalysisData } from './types';
 
 const data = dataJson as AnalysisData;
 
+// Pré-aquece o app do Streamlit assim que o relatório abre, para que ele já
+// esteja de pé quando o leitor chegar na Seção 10. Apps no Community Cloud
+// "dormem" por inatividade; um GET inicial dispara o boot e o keep-alive evita
+// que ele volte a dormir durante a leitura. Requisição fire-and-forget em
+// no-cors (não precisamos da resposta; só queremos que o request chegue ao
+// servidor). Observação: se o app estiver em sono profundo, o Streamlit exibe
+// um botão "wake up" que exige clique — para garantia total, mantenha um pinger
+// externo (cron-job.org / UptimeRobot) batendo na URL a cada ~5 min.
+function prewarmApp() {
+  if (!APP_URL) return;
+  const ping = () => {
+    fetch(APP_URL, { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+    fetch(APP_URL + '_stcore/health', { mode: 'no-cors', cache: 'no-store' }).catch(() => {});
+  };
+  ping();
+  return window.setInterval(ping, 4 * 60 * 1000); // keep-alive a cada 4 min
+}
+
 function App() {
+  useEffect(() => {
+    const id = prewarmApp();
+    return () => {
+      if (id) window.clearInterval(id);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-inteli-gray-bg">
       <Header />
